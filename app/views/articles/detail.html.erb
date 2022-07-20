@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記事詳細ページ</title>
+  </head>
+
+  <body>
+    <h1>記事詳細ページ</h1>
+    <p>タイトル：<%= @article.title %></p>
+    <p>内容：<%= @article.content %></p>
+    <p>最終更新日時：<%= simple_time(@article.updated_at) %></p>
+  </body>
+</html>
