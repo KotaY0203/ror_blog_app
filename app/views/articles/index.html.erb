@@ -16,7 +16,7 @@
 
     <%= form_with url:articles_path, local:true, method: :get do |form| %>
       <div>
-        <%= form.text_field :condition %>
+        <%= form.text_field :condition, value: @condition %>
       </div>
     
       <div>

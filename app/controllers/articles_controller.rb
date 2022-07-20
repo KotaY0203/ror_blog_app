@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
     def index
         if !params[:condition].blank?
             @articles = Article.where(deleted_at: Article::FLAG_NOT_DELETED).where('title LIKE ?', "%#{params[:condition]}%")
+            @condition = params[:condition]
         else
             @articles = Article.where(deleted_at: Article::FLAG_NOT_DELETED)
         end
