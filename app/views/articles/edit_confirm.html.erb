@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記事編集 - 確認ページ</title>
+  </head>
+
+  <body>
+    <h1>記事編集 - 確認ページ</h1>
+    <h2>下記の内容で投稿します</h2>
+    <p>タイトル：<%= @title %></p>
+    <p>内容：<%= @content %></p>
+
+    <%= form_with url:articles_edit_done_path, local:true do |form| %>
+        <div>
+            <%= form.hidden_field :title, :value => @title %>
+        </div>
+      
+        <div>
+            <%= form.hidden_field :content, :value => @content %>
+        </div>
+      
+        <div>
+          <%= form.submit "投稿する" %>
+        </div>
+    <% end %>
+  </body>
+</html>

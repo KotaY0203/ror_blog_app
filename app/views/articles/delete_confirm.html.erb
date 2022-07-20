@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記事削除 - 確認ページ</title>
+  </head>
+
+  <body>
+    <h1>記事削除 - 確認ページ</h1>
+    <p>タイトル：<%= @article.title %></p>
+    <p>内容：<%= @article.content %></p>
+    <h3><%= link_to "記事を削除する", articles_delete_path(id:@article.id), method: :post %></h3>
+  </body>
+</html>

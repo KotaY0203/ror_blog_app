@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記事一覧ページ</title>
+    <style>
+    .articles{
+      padding: 0.5em 0.5em 0.5em 2em;
+      border: solid 3px gray;
+      margin: 1em;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1>記事一覧ページ</h1>
+
+    <%= form_with url:articles_path, local:true, method: :get do |form| %>
+      <div>
+        <%= form.text_field :condition %>
+      </div>
+    
+      <div>
+        <%= form.submit "検索", name: nil %>
+      </div>
+  <% end %>
+
+    <% @articles.each do |article| %>
+      <div class=articles>
+        <h3><%= link_to article.title, articles_detail_path(id:article.id ) %></h3>
+        <p><%= article.content %></p>
+        <p><%= link_to "この記事を編集する", articles_edit_path(id:article.id) %></p>
+        <p><%= link_to "この記事を削除する", articles_delete_confirm_path(id:article.id) %></p>
+      </div>
+    <% end %>
+
+    <%= link_to "記事を投稿する", articles_post_path %>
+  </body>
+</html>

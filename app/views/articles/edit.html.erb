@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記事編集 - 入力ページ</title>
+  </head>
+
+  <body>
+    <h1>記事編集 - 入力ページ</h1>
+
+    <h2>
+    <%= flash[:message] %>
+
+    <% if !flash[:title_error].blank? %>
+      <p>タイトルは<%= flash[:title_error] %>です</p>
+    <% end %>
+
+    <% if !flash[:content_error].blank? %>
+      <p>内容は<%= flash[:content_error] %>です</p>
+    <% end %>
+    </h2>
+
+    <%= form_with url:articles_edit_confirm_path, local:true do |form| %>
+        <div>
+          <%= form.label :title, "タイトル" %><br>
+          <%= form.text_field :title, value: @title %>
+        </div>
+      
+        <div>
+          <%= form.label :content, "内容" %><br>
+          <%= form.text_area :content, value: @content %>
+        </div>
+      
+        <div>
+          <%= form.submit "内容を確認する" %>
+        </div>
+    <% end %>
+  </body>
+</html>
